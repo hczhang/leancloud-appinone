@@ -11,18 +11,18 @@ var http = require('http');
 var qs = require('querystring');  
   
 var data = {
-	"module":"GetContacts201410",
-	"staffid":"21",
-	"startTime":"20140619100000"
+	//"module":"GetContacts201410",
+	//"staffid":"21",
+	//"startTime":"20140619100000"
 };//这是需要提交的数据  
 // http://10.5.107.224:8080/interface/GetInfoService.aspx?module=GetContacts201410&staffid=21&startTime=20140619100000
   
 var content = qs.stringify(data);  
   
 var options = {  
-    hostname: '10.5.8.13',  // 127.0.0.1
-    port: 2092,  // 3000
-    path: '/interface/GetInfoService.aspx?' + content,  
+    hostname: '115.29.224.227',  // 127.0.0.1
+    port: 80,  // 3000
+    path: '/Login.aspx?' + content,  
     method: 'GET'  
 };  
   
