@@ -7,8 +7,6 @@ AV.Cloud.define("hello", function(request, response) {
 
 AV.Cloud.afterSave("Messages", function(request){
 	var message = request.object.get('data');
-  console.log(request.object);
-  console.log(request.object.createdAt);
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
@@ -16,16 +14,13 @@ AV.Cloud.afterSave("Messages", function(request){
 		
 		headers: {
 			'Content-Type': 'application/json',
-			'Content-Length': message.length
 			//'Content-Type': 'application/x-www-form-urlencoded'
 		},
 
 		body: message,
 	  success: function(httpResponse) {
 			console.log(message);
-			console.log(message.length);
-			console.log(httpResponse.status + "ok..");
-	    console.log(httpResponse.text);
+			console.log(httpResponse.status + ":" + httpResponse.text);
 	  },
 	  error: function(httpResponse) {
 			console.log(httpResponse);
