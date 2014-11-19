@@ -5,7 +5,7 @@ AV.Cloud.define("hello", function(request, response) {
 	response.success("Hello world!");
 });
 
-AV.Cloud.beforeSave("Messages", function(request,response){
+AV.Cloud.afterSave("Messages", function(request){
 	var message = request.object.get("data");
 
 	AV.Cloud.httpRequest({
@@ -31,6 +31,6 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 	  }
 	});
 
-	response.success();
+	//response.success();
 })
 
