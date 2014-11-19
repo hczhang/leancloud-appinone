@@ -13,13 +13,15 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 	  url: 'http://183.247.151.178:2090/appin_one/interface/GetInfoService.aspx?module=SyncMessage',
 		
 		headers: {
-			//'Content-Type': 'application/json'
-			'Content-Type': 'application/x-www-form-urlencoded'
+			'Content-Type': 'application/json',
+			'Content-Length': message.length
+			//'Content-Type': 'application/x-www-form-urlencoded'
 		},
 
 		body: message,
 	  success: function(httpResponse) {
 			console.log(message);
+			console.log(message.length);
 			console.log(httpResponse.status + "ok..");
 	    console.log(httpResponse.text);
 	  },
