@@ -17,6 +17,7 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 
 		
 	  success: function(httpResponse) {
+			console.log(httpResponse.status + "ok..");
 	    console.log(httpResponse.text);
 	  },
 	  error: function(httpResponse) {
