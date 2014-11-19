@@ -10,10 +10,8 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
-	  url: 'http://183.247.151.178:2090/appin_one/interface/GetInfoService.aspx',
-		params: {
-			'module':'SyncMessage'
-	  },
+	  url: 'http://183.247.151.178:2090/appin_one/interface/GetInfoService.aspx?module=SyncMessage',
+		
 		headers: {
 			'Content-Type': 'application/json'
 		},
