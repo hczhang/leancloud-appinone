@@ -6,40 +6,23 @@ AV.Cloud.define("hello", function(request, response) {
 });
 
 AV.Cloud.beforeSave("Messages", function(request,response){
-var http = require('http');  
-  
-var qs = require('querystring');  
-  
-var data = {
-	//"module":"GetContacts201410",
-	//"staffid":"21",
-	//"startTime":"20140619100000"
-};//这是需要提交的数据  
-// http://10.5.107.224:8080/interface/GetInfoService.aspx?module=GetContacts201410&staffid=21&startTime=20140619100000
-  
-var content = qs.stringify(data);  
-  
-var options = {  
-    hostname: '115.29.224.227',  // 127.0.0.1
-    port: 80,  // 3000
-    path: '/Login.aspx?' + content,  
-    method: 'GET'  
-};  
-  
-var req = http.request(options, function (res) {  
-    console.log('STATUS: ' + res.statusCode);  
-    console.log('HEADERS: ' + JSON.stringify(res.headers));  
-    res.setEncoding('utf8');  
-    res.on('data', function (chunk) {  
-        console.log('BODY: ' + chunk);  
-    });  
-});  
-  
-req.on('error', function (e) {  
-    console.log('problem with request: ' + e.message);  
-});  
-  
-req.end(); 
-response.success("good");
+	var message = request.object.get("data");
+
+	AV.Cloud.httpRequest({
+	  method: 'GET',
+	  url: 'http://183.247.151.178:2090/interface/GetInfoService.aspx',
+	  params: {
+		'module':'SyncMessage',
+		'data':message
+	  },
+	  success: function(httpResponse) {
+	    console.log(httpResponse.text);
+	  },
+	  error: function(httpResponse) {
+	    console.error('Request failed with response code ' + httpResponse.status);
+	  }
+	});
+
+	response.success();
 })
 
