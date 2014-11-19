@@ -14,14 +14,13 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 		params: {
 			'module':'SyncMessage'
 	  },
-		headers: {
-    	'Content-Type': 'application/json'
-		},
+
 		body: message,
 	  success: function(httpResponse) {
 	    console.log(httpResponse.text);
 	  },
 	  error: function(httpResponse) {
+			console.log(httpResponse);
 	    console.error('Request failed with response code ' + httpResponse.status);
 	  }
 	});
