@@ -14,8 +14,11 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 		params: {
 			'module':'SyncMessage'
 	  },
+		headers: {
+			'Content-Type': 'application/json'
+		},
 
-		
+		body: message,
 	  success: function(httpResponse) {
 			console.log(httpResponse.status + "ok..");
 	    console.log(httpResponse.text);
