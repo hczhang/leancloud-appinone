@@ -14,9 +14,10 @@ AV.Cloud.beforeSave("Messages", function(request,response){
 		
 		headers: {
 			'Content-Type': 'application/json'
+			//'Content-Type': 'application/x-www-form-urlencoded'
 		},
 
-		body: 'data=aaa',
+		body: message,
 	  success: function(httpResponse) {
 			console.log(message);
 			console.log(httpResponse.status + "ok..");
