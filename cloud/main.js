@@ -6,8 +6,9 @@ AV.Cloud.define("hello", function(request, response) {
 });
 
 AV.Cloud.afterSave("Messages", function(request){
-	var message = request.object.get("data");
+	var message = request.object.get('data');
   console.log(request.object);
+  console.log(request.object.get('createdAt');
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
