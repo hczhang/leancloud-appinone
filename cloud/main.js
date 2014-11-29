@@ -13,8 +13,8 @@ AV.Cloud.afterSave("Messages", function(request){
 	  url: 'http://183.247.151.178:2090/appin_one/interface/GetInfoService.aspx?module=SyncMessage',
 		
 		headers: {
-			'Content-Type': 'application/json',
-			//'Content-Type': 'application/x-www-form-urlencoded'
+			//'Content-Type': 'application/json',
+			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 
 		body: message,
