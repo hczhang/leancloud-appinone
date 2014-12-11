@@ -32,12 +32,14 @@ AV.Cloud.afterSave("Messages", function(request){
 });
 
 AV.Cloud.afterUpdate("_Installation", function(request){
+	console.log(request.object);
+	
 	var tokenid = request.object.get('installationId');
 	var staffid = request.object.get('staffId');
 	var debug = 1;
 	var kind = 'android';
 
-	console.log(tokenid);
+	
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
