@@ -31,7 +31,7 @@ AV.Cloud.afterSave("Messages", function(request){
 	//response.success();
 });
 
-AV.Cloud.afterSave("_Installation", function(request){
+AV.Cloud.afterUpdate("_Installation", function(request){
 	var tokenid = request.object.get('installationId');
 	var staffid = request.object.get('staffId');
 	var debug = 1;
