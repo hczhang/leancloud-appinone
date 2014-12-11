@@ -29,7 +29,7 @@ AV.Cloud.afterSave("Messages", function(request){
 	});
 
 	//response.success();
-})
+});
 
 AV.Cloud.afterSave("_Installation", function(request){
 	var tokenid = request.object.get('installationId');
@@ -62,4 +62,4 @@ AV.Cloud.afterSave("_Installation", function(request){
 	});
 
 	//response.success();
-})
+});
