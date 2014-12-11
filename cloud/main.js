@@ -37,6 +37,8 @@ AV.Cloud.afterSave("_Installation", function(request){
 	var debug = 1;
 	var kind = 'android';
 
+	console.log(tokenid);
+
 	AV.Cloud.httpRequest({
 	  method: 'POST',
 	  url: 'http://183.247.151.178:2090/appinone/interface/GetInfoService.aspx?module=SetTokenId',
