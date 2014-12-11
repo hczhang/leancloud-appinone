@@ -10,7 +10,7 @@ AV.Cloud.afterSave("Messages", function(request){
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
-	  url: 'http://183.247.151.178:2090/appin_one/interface/GetInfoService.aspx?module=SyncMessage',
+	  url: 'http://183.247.151.178:2090/appinone/interface/GetInfoService.aspx?module=SyncMessage',
 		
 		headers: {
 			//'Content-Type': 'application/json',
@@ -31,3 +31,35 @@ AV.Cloud.afterSave("Messages", function(request){
 	//response.success();
 })
 
+AV.Cloud.afterSave("_Installation", function(request){
+	var tokenid = request.object.get('installationId');
+	var staffid = request.object.get('staffId');
+	var debug = 1;
+	var kind = 'android';
+
+	AV.Cloud.httpRequest({
+	  method: 'POST',
+	  url: 'http://183.247.151.178:2090/appinone/interface/GetInfoService.aspx?module=SetTokenId',
+				
+		params: {
+		  tokenid:tokenid, staffid:staffid, debug:debug, kind:kind
+		},
+
+		headers: {
+			//'Content-Type': 'application/json',
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+
+		//body: '',
+	  success: function(httpResponse) {
+			console.log(tokenid);
+			console.log(httpResponse.status + ":" + httpResponse.text);
+	  },
+	  error: function(httpResponse) {
+			console.log(httpResponse);
+	    console.error('Request failed with response code ' + httpResponse.status);
+	  }
+	});
+
+	//response.success();
+})
