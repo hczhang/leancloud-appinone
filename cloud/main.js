@@ -10,7 +10,7 @@ AV.Cloud.afterSave("Messages", function(request){
 
 	AV.Cloud.httpRequest({
 	  method: 'POST',
-	  url: 'http://183.247.151.178:2090/appinone/interface/GetInfoService.aspx?module=SyncMessage',
+	  url: 'http://183.247.151.178:2090/appinone/interface/GetInfoService.aspx?module=SendMessage',
 		
 		headers: {
 			//'Content-Type': 'application/json',
